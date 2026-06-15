@@ -29,14 +29,14 @@ class Number(Validator):
         elif value < self.min_value or value > self.max_value:
             raise ValueError(f"Quantity should not be "
                              f"less than {self.min_value} and "
-                             f"greater than {self.max_value}")
+                             f"greater than {self.max_value}.")
 
 
 class OneOf(Validator):
     def __init__(self, options: tuple | list) -> None:
         self.options = options  # Store as tuple or list
 
-    def validate(self, value: tuple | list) -> None:
+    def validate(self, value: str) -> None:
         if value not in self.options:
             raise ValueError(f"Expected {value} to be one of {self.options}.")
 
